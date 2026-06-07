@@ -72,14 +72,19 @@ span svg {
 }
 
 .black-button {
+<<<<<<< HEAD
     display: inline-flex;
     align-items: center;
     gap: 8px;
+=======
+    display: flex;
+>>>>>>> b1db376 (Initial commit)
     padding: 10px 20px;
     background-color: #000;
     color: white;
     border-radius: 8px;
     text-decoration: none;
+<<<<<<< HEAD
     white-space: nowrap;
     font-size: 14px;
     transition: background-color 0.2s;
@@ -87,6 +92,12 @@ span svg {
 
 .black-button svg {
     margin: 0;
+=======
+}
+
+.black-button svg {
+    margin-top: 4px;
+>>>>>>> b1db376 (Initial commit)
 }
 
 .project-status {

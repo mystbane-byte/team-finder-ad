@@ -21,6 +21,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+<<<<<<< HEAD
+=======
+    "users",
+    "projects",
+>>>>>>> b1db376 (Initial commit)
 ]
 
 MIDDLEWARE = [
@@ -116,3 +121,15 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+<<<<<<< HEAD
+=======
+
+
+# Custom user model
+AUTH_USER_MODEL = "users.CustomUser"
+
+# Login/login redirects
+LOGIN_URL = "/users/login/"
+LOGIN_REDIRECT_URL = "/projects/list/"
+LOGOUT_REDIRECT_URL = "/projects/list/"
+>>>>>>> b1db376 (Initial commit)

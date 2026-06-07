@@ -17,6 +17,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <div class="skills-filter">
         <span class="filter-label">Фильтр по навыкам:</span>
         <div class="filter-chips">
@@ -35,6 +36,38 @@
     {% if page_obj.object_list %}
     <div class="participants-grid">
         {% for participant in page_obj %}
+=======
+    {% if request.user.is_authenticated %}
+        <div class="participants-filter">
+            <span class="filter-label">Фильтры пользователей:</span>
+            <div class="filter-chips">
+                <a href="?filter=owners-of-favorite-projects"
+                   class="filter-chip {% if active_filter == 'owners-of-favorite-projects' %}active{% endif %}">
+                    Авторы избранных проектов
+                </a>
+                <a href="?filter=owners-of-participating-projects"
+                   class="filter-chip {% if active_filter == 'owners-of-participating-projects' %}active{% endif %}">
+                    Авторы проектов, в которых я участвую
+                </a>
+                <a href="?filter=interested-in-my-projects"
+                   class="filter-chip {% if active_filter == 'interested-in-my-projects' %}active{% endif %}">
+                    Пользователи, которым нравятся мои проекты
+                </a>
+                <a href="?filter=participants-of-my-projects"
+                   class="filter-chip {% if active_filter == 'participants-of-my-projects' %}active{% endif %}">
+                    Участники моих проектов
+                </a>
+                {% if active_filter %}
+                <a href="/users/list" class="filter-reset">Сбросить</a>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+    {% if participants %}
+    <div class="participants-grid">
+        {% for participant in participants %}
+>>>>>>> b1db376 (Initial commit)
         <div class="participant-card">
             <div class="participant-card-header">
                 {% if participant.avatar %}
@@ -55,6 +88,7 @@
         </div>
         {% endfor %}
     </div>
+<<<<<<< HEAD
     {% if page_obj.has_other_pages %}
     <div class="pagination">
         {% if page_obj.has_previous %}
@@ -74,6 +108,10 @@
     {% endif %}
     {% else %}
     {% include 'includes/empty-project-card.html' with empty_title="Пока нет участников" empty_message="Попробуйте сбросить фильтр по навыкам" button_link="/users/list" button_text="Сбросить" %}
+=======
+    {% else %}
+    {% include 'includes/empty-project-card.html' with empty_title="Пока нет участников" empty_message="Попробуйте сбросить фильтр" button_link="/users/list" button_text="Сбросить" %}
+>>>>>>> b1db376 (Initial commit)
     {% endif %}
 </div>
 {% endblock %}

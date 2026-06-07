@@ -234,6 +234,7 @@
     text-decoration: underline;
     color: #666;
 }
+<<<<<<< HEAD
 
 .pagination {
     display: flex;
@@ -268,3 +269,5 @@
     color: white;
     border-color: #333;
 }
+=======
+>>>>>>> b1db376 (Initial commit)

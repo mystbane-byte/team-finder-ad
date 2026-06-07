@@ -44,9 +44,15 @@
         </div>
     {% endif %}
 
+<<<<<<< HEAD
     {% if page_obj.object_list %}
     <div class="participants-grid">
         {% for participant in page_obj %}
+=======
+    {% if participants %}
+    <div class="participants-grid">
+        {% for participant in participants %}
+>>>>>>> b1db376 (Initial commit)
         <div class="participant-card">
             <div class="participant-card-header">
                 {% if participant.avatar %}
@@ -67,6 +73,7 @@
         </div>
         {% endfor %}
     </div>
+<<<<<<< HEAD
     {% if page_obj.has_other_pages %}
     <div class="pagination">
         {% if page_obj.has_previous %}
@@ -84,6 +91,8 @@
         {% endif %}
     </div>
     {% endif %}
+=======
+>>>>>>> b1db376 (Initial commit)
     {% else %}
     {% include 'includes/empty-project-card.html' with empty_title="Пока нет участников" empty_message="Попробуйте сбросить фильтр" button_link="/users/list" button_text="Сбросить" %}
     {% endif %}

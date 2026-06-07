@@ -5,6 +5,7 @@
     if (!container) return;
 
     const projectId = container.dataset.projectId;
+<<<<<<< HEAD
     const userId = container.dataset.userId;
 
     let skillsUrl, addUrl, removeUrl;
@@ -18,6 +19,8 @@
       removeUrl = (skillId) => `/projects/${projectId}/skills/${skillId}/remove/`;
     }
 
+=======
+>>>>>>> b1db376 (Initial commit)
     const addBtn = document.getElementById("add-skill-btn");
     const inputWrapper = document.getElementById("skill-input-wrapper");
     const input = document.getElementById("skill-input");
@@ -44,7 +47,11 @@
         return;
       }
       t = setTimeout(async () => {
+<<<<<<< HEAD
         const res = await fetch(`${skillsUrl}?q=${encodeURIComponent(q)}`);
+=======
+        const res = await fetch(`/projects/skills/?q=${encodeURIComponent(q)}`);
+>>>>>>> b1db376 (Initial commit)
         if (!res.ok) return;
         const data = await res.json();
 
@@ -113,7 +120,11 @@
       if (e.target.classList.contains("remove-skill-btn")) {
         const chip = e.target.closest(".skill-chip");
         const skillId = chip.dataset.id;
+<<<<<<< HEAD
         const res = await fetch(removeUrl(skillId), {
+=======
+        const res = await fetch(`/projects/${projectId}/skills/${skillId}/remove/`, {
+>>>>>>> b1db376 (Initial commit)
           method: "POST",
           headers: { "X-CSRFToken": getCookie("csrftoken") }
         });
@@ -124,7 +135,11 @@
     });
 
     async function addSkillById(skillId) {
+<<<<<<< HEAD
       const res = await fetch(addUrl, {
+=======
+      const res = await fetch(`/projects/${projectId}/skills/add/`, {
+>>>>>>> b1db376 (Initial commit)
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -139,7 +154,11 @@
     }
 
     async function addSkillByName(name) {
+<<<<<<< HEAD
       const res = await fetch(addUrl, {
+=======
+      const res = await fetch(`/projects/${projectId}/skills/add/`, {
+>>>>>>> b1db376 (Initial commit)
         method: "POST",
         headers: {
           "Content-Type": "application/json",
