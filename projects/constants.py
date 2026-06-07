@@ -1,0 +1,12 @@
+PROJECTS_PER_PAGE = 12
+
+# Длины полей
+PROJECT_NAME_MAX_LENGTH = 200
+
+# Статусы проекта
+PROJECT_STATUS_OPEN = "open"
+PROJECT_STATUS_CLOSED = "closed"
+PROJECT_STATUS_CHOICES = [
+    (PROJECT_STATUS_OPEN, "Открыт"),
+    (PROJECT_STATUS_CLOSED, "Закрыт"),
+]

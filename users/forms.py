@@ -1,20 +1,22 @@
 import re
+
 from django import forms
-from django.core.exceptions import ValidationError
 from django.contrib.auth import password_validation
-from .models import CustomUser
+from django.core.exceptions import ValidationError
+
+from .models import User
 
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput, label="Пароль")
 
     class Meta:
-        model = CustomUser
+        model = User
         fields = ("name", "surname", "email")
 
     def clean_email(self):
         email = self.cleaned_data.get("email")
-        if CustomUser.objects.filter(email=email).exists():
+        if User.objects.filter(email=email).exists():
             raise forms.ValidationError("Пользователь с таким email уже существует")
         return email
 
@@ -33,7 +35,7 @@ class UserLoginForm(forms.Form):
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
-        model = CustomUser
+        model = User
         fields = ("name", "surname", "avatar", "about", "phone", "github_url")
 
     def clean_phone(self):
@@ -47,14 +49,8 @@ class UserProfileForm(forms.ModelForm):
                 "Номер должен быть в формате +7XXXXXXXXXX или 8XXXXXXXXXX"
             )
         phone = "+7" + match.group(2)
-        if CustomUser.objects.exclude(pk=self.instance.pk).filter(phone=phone).exists():
+        if User.objects.exclude(pk=self.instance.pk).filter(phone=phone).exists():
             raise ValidationError(
                 "Пользователь с таким номером телефона уже существует"
             )
         return phone
-
-    def clean_github_url(self):
-        url = self.cleaned_data.get("github_url")
-        if url and "github.com" not in url:
-            raise ValidationError("Ссылка должна вести на GitHub")
-        return url
