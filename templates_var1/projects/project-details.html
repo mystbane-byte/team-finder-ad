@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<<<<<<< HEAD
 {% block title %}{{ project.name }}{% endblock %}
-=======
-{% block title %}{{ project.title }}{% endblock %}
->>>>>>> b1db376 (Initial commit)
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/project_details.css' %}">
@@ -54,7 +50,6 @@
                 {% endif %}
         </div>
         <div class="project-actions">
-<<<<<<< HEAD
             {% if user.is_authenticated %}
             <button
                     class="black-button project-fav-icon {% if project in user.favorites.all %}favorite{% else %}not-favorite{% endif %}"
@@ -65,8 +60,6 @@
                 {% include 'includes/svg/heart.html' %}
             </button>
             {% endif %}
-=======
->>>>>>> b1db376 (Initial commit)
             <a href="#"
                class="black-button black-button-share share-button"
                data-url="/projects/{{ project.id }}">
@@ -126,10 +119,7 @@
         {% endfor %}
         </div>
     </div>
-<<<<<<< HEAD
     {% include 'includes/project-fav-toggle.js' %}
-=======
->>>>>>> b1db376 (Initial commit)
 </div>
 {% endblock %}
 {% endwith %}
