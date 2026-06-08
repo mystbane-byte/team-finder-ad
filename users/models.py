@@ -56,7 +56,7 @@ class User(AbstractUser):
         try:
             font = ImageFont.truetype("arial.ttf", font_size)
         except (IOError, OSError):
-            font = ImageFont.load_default()
+            font = ImageFont.load_default(size=font_size)
 
         text = self.name[0].upper()
         bbox = draw.textbbox((0, 0), text, font=font)

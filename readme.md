@@ -146,13 +146,13 @@ pip install -r requirements.txt
 DJANGO_SECRET_KEY=your_secret_key
 DJANGO_DEBUG=True
 
+ALLOWED_HOSTS=127.0.0.1,localhost
+
 POSTGRES_DB=team_finder_db
 POSTGRES_USER=team_finder_user
 POSTGRES_PASSWORD=your_password
 POSTGRES_HOST=localhost
 POSTGRES_PORT=5432
-
-TASK_VERSION=1
 ```
 
 ### 5. Настройка PostgreSQL

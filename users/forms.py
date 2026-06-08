@@ -1,7 +1,7 @@
 import re
 
+from core.forms_mixins import GithubURLMixin
 from django import forms
-from django.contrib.auth import password_validation
 from django.core.exceptions import ValidationError
 
 from .models import User
@@ -33,7 +33,7 @@ class UserLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput, label="Пароль")
 
 
-class UserProfileForm(forms.ModelForm):
+class UserProfileForm(GithubURLMixin, forms.ModelForm):
     class Meta:
         model = User
         fields = ("name", "surname", "avatar", "about", "phone", "github_url")
